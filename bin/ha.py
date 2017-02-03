@@ -11,7 +11,8 @@ from subprocess import call
 ###
 # all we need for the plugs
 dictPLUGS = {"turm": 1, "kugel": 2, "kiste": 3, "bad": 4}
-dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad"], "wohnzimmer": ["turm", "kugel", "kiste"]}
+dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad"],
+                  "wohnzimmer": ["turm", "kugel", "kiste"]}
 dictPLUGSTATE = {"ON": 1, "OFF": 0}
 PLUGSYSTEMCODE = 10101
 # the dictDEVICES dictionary holds any additional device and their ON OFF commands
@@ -102,7 +103,8 @@ def main(argv):
                 logging.info("Command executed succesfully.")
                 return 0
         else:
-            logging.warn("Setting device %s to state %s is not supported." % (args.device, args.state))
+            logging.warn("Setting device %s to state %s is not supported."
+                         % (args.device, args.state))
             return 1
     except Exception, e:
         logging.exception("ERROR: %sn" % str(e))
