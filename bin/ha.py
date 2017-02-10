@@ -10,9 +10,9 @@ from subprocess import call
 # Statics
 ###
 # all we need for the plugs
-dictPLUGS = {"turm": 1, "kugel": 2, "kiste": 3, "bad": 4}
-dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad"],
-                  "wohnzimmer": ["turm", "kugel", "kiste"]}
+dictPLUGS = {"turm": 1, "kugel": 2, "kiste": 3, "bad": 4, "ball": 5}
+dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad", "ball"],
+                  "wohnzimmer": ["turm", "kugel", "kiste", "ball"]}
 dictPLUGSTATE = {"ON": 1, "OFF": 0}
 PLUGSYSTEMCODE = 10101
 # the dictDEVICES dictionary holds any additional device and their ON OFF commands
