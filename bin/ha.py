@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import os
@@ -77,8 +77,11 @@ def main(argv):
         parser = argparse.ArgumentParser(description='This is a Home Automation Trigger')
         # Adding our two argumets
         parser.add_argument("device", help="Specify name of the device you want to control",
-                            choices=(dictPLUGS.keys() + dictPLUGSCENES.keys() + dictDEVICES.keys()))
-        parser.add_argument("state", help="Specify state to be set", choices=dictPLUGSTATE.keys())
+                            choices=(list(dictPLUGS.keys())
+                                     + list(dictPLUGSCENES.keys())
+                                     + list(dictDEVICES.keys())))
+        parser.add_argument("state", help="Specify state to be set",
+                            choices=list(dictPLUGSTATE.keys()))
         # and parsing them
         args = parser.parse_args()
 
@@ -106,7 +109,7 @@ def main(argv):
             logging.warn("Setting device %s to state %s is not supported."
                          % (args.device, args.state))
             return 1
-    except Exception, e:
+    except Exception as e:
         logging.exception("ERROR: %sn" % str(e))
         return 1
 
