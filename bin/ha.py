@@ -10,11 +10,10 @@ from subprocess import call
 # Statics
 ###
 # all we need for the plugs
-dictPLUGS = {"turm": 1, "kugel": 2, "kiste": 3, "bad": 4, "ball": 5}
+dictPLUGS = {"turm": "10101 1", "kugel": "10101 2", "kiste": "10101 3", "bad": "10101 4", "ball": "10101 5","leuchtbox": "00000 3"}
 dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad", "ball"],
                   "wohnzimmer": ["turm", "kugel", "kiste", "ball"]}
 dictPLUGSTATE = {"ON": 1, "OFF": 0}
-PLUGSYSTEMCODE = 10101
 # the dictDEVICES dictionary holds any additional device and their ON OFF commands
 dictDEVICES = {"diskstation": {"ON": "wakeonlan 00:11:32:2A:6E:33"}}
 
@@ -28,11 +27,11 @@ def build_command(device, state):
     command = ""
 
     if device in dictPLUGS.keys():
-        command = "send %d %d %d" % (PLUGSYSTEMCODE, dictPLUGS[device], dictPLUGSTATE[state])
+        command = "send %s %s" % (dictPLUGS[device], dictPLUGSTATE[state])
 
     if device in dictPLUGSCENES.keys():
         for plug in dictPLUGSCENES[device]:
-            command += "send %d %d %d ;" % (PLUGSYSTEMCODE, dictPLUGS[plug], dictPLUGSTATE[state])
+            command += "send %s %s ;" % (dictPLUGS[plug], dictPLUGSTATE[state])
 
     if (device in dictDEVICES.keys() and state in dictDEVICES[device].keys()):
             command = dictDEVICES[device][state]
