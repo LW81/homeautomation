@@ -12,7 +12,7 @@ from subprocess import call
 # all we need for the plugs
 dictPLUGS = {"turm": "10101 1", "kugel": "10101 2", "kiste": "10101 3", "bad": "10101 4", "ball": "10101 5","leuchtbox": "00000 3"}
 dictPLUGSCENES = {"haus": ["turm", "kugel", "kiste", "bad", "ball"],
-                  "wohnzimmer": ["ball", "kugel", "turm", "kiste"]}
+                  "wohnzimmer": ["ball", "kiste"]}
 dictPLUGSTATE = {"ON": 1, "OFF": 0}
 # the dictDEVICES dictionary holds any additional device and their ON OFF commands
 dictDEVICES = {"diskstation": {"ON": "wakeonlan 00:11:32:2A:6E:33"}}
